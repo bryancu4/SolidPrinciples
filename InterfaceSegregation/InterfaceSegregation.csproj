@@ -56,6 +56,7 @@
     <Compile Include="AboutPage.cs" />
     <Compile Include="AboutPageShouldTests.cs" />
     <Compile Include="ConfigurationSettings.cs" />
+    <Compile Include="IApplicationIdentitySettings.cs" />
     <Compile Include="IConfigurationSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />

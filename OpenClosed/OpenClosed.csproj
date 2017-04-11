@@ -51,8 +51,15 @@
   </Choose>
   <ItemGroup>
     <Compile Include="CartTotalShouldReturnTests.cs" />
+    <Compile Include="Model\Buy4GetOneFree.cs" />
     <Compile Include="Model\Cart.cs" />
+    <Compile Include="Model\EachPriceRule.cs" />
+    <Compile Include="Model\IPriceRule.cs" />
+    <Compile Include="Model\IPricingCalculator.cs" />
     <Compile Include="Model\OrderItem.cs" />
+    <Compile Include="Model\PerGramPriceRule.cs" />
+    <Compile Include="Model\PricingCalculator.cs" />
+    <Compile Include="Model\SpecialPriceRule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Choose>

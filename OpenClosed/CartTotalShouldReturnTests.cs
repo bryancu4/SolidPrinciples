@@ -46,5 +46,17 @@ namespace OpenClosed
             _cart.Add(new OrderItem() { Quantity = 6, Sku = "SPECIAL_CANDYBAR" });
             Assert.AreEqual(2m, _cart.TotalAmount());
         }
+        [TestMethod]
+        public void FourDollarsWithFourBuy4Get1FreeItems()
+        {
+            _cart.Add(new OrderItem() { Quantity = 4, Sku = "B4GO_APPLE" });
+            Assert.AreEqual(4m, _cart.TotalAmount());
+        }
+        [TestMethod]
+        public void FourDollarsWithFiveBuy4Get1FreeItems()
+        {
+            _cart.Add(new OrderItem() { Quantity = 5, Sku = "B4GO_APPLE" });
+            Assert.AreEqual(4m, _cart.TotalAmount());
+        }
     }
 }

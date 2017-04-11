@@ -1,13 +1,20 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace OpenClosed.Model
 {
     public class Cart
     {
         private readonly List<OrderItem> _items;
+        private readonly IPricingCalculator _pricingCalculator;
 
-        public Cart()
+        // Poor man's IOC
+        public Cart() : this(new PricingCalculator())
         {
+        }
+
+        public Cart(IPricingCalculator pricingCalculator)
+        {
+            _pricingCalculator = pricingCalculator;
             _items = new List<OrderItem>();
         }
 
@@ -28,22 +35,7 @@ namespace OpenClosed.Model
             decimal total = 0m;
             foreach (OrderItem orderItem in Items)
             {
-                if (orderItem.Sku.StartsWith("EACH"))
-                {
-                    total += orderItem.Quantity*5m;
-                }
-                else if (orderItem.Sku.StartsWith("WEIGHT"))
-                {
-                    // quantity is in grams, price is per kg
-                    total += orderItem.Quantity*4m/1000;
-                }
-                else if (orderItem.Sku.StartsWith("SPECIAL"))
-                {
-                    // $0.40 each; 3 for a $1.00
-                    total += orderItem.Quantity*.4m;
-                    int setsOfThree = orderItem.Quantity/3;
-                    total -= setsOfThree*.2m;
-                }
+                total += _pricingCalculator.CalculatePrice(orderItem);
                 // more rules are coming!
             }
             return total;

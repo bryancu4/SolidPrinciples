@@ -17,5 +17,18 @@ namespace InterfaceSegregation
 
             Assert.AreEqual("Interface Segregation By Steve Smith", output);
         }
+
+        [TestMethod]
+        public void DisplayApplicationNameNoFile()
+        {
+            // now works without file
+            var aboutPage = new AboutPage(new Settings());
+            var textWriter = new StringWriter();
+            aboutPage.Render(textWriter);
+
+            var output = textWriter.ToString();
+
+            Assert.AreEqual("TEST APP NAME By TEST AUTHOR NAME", output);
+        }
     }
 }

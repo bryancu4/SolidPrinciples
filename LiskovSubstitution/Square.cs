@@ -1,28 +1,12 @@
 ﻿namespace LiskovSubstitution
 {
-    public class Square : Rectangle
+    public class Square : Shape
     {
-        private int _height;
-        private int _width;
+        public int SideLength;
 
-        public override int Width
+        public int Area()
         {
-            get { return _width; }
-            set
-            {
-                _width = value;
-                _height = value;
-            }
-        }
-
-        public override int Height
-        {
-            get { return _height; }
-            set
-            {
-                _width = value;
-                _height = value;
-            }
+            return SideLength * SideLength;
         }
     }
 }

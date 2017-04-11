@@ -1,9 +1,13 @@
 ﻿namespace LiskovSubstitution
 {
-    public class Rectangle
+    public class Rectangle : Shape
     {
-        public virtual int Height { get; set; }
-        public virtual int Width { get; set; }
+        public int Height { get; set; }
+        public int Width { get; set; }
 
+        public int Area()
+        {
+            return Height * Width;
+        }
     }
 }

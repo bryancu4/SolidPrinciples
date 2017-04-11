@@ -4,7 +4,7 @@
     {
         // application identity settings
         string ApplicationName { get; }
-        string AuthorName { get; set; }
+        string AuthorName { get; }
 
         // performance tuning settings
         int CacheDuration { get; }

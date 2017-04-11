@@ -4,10 +4,21 @@ namespace InterfaceSegregation
 {
     public class AboutPage
     {
+        private readonly IConfigurationSettings _configurationSettings;
+
+        public AboutPage(IConfigurationSettings configurationSettings)
+        {
+            _configurationSettings = configurationSettings;
+        }
+
+        public AboutPage() : this(ConfigurationSettings.Settings)
+        { }
+
         public void Render(TextWriter writer)
         {
-            var settings = ConfigurationSettings.Settings;
-            writer.Write("{0} By {1}", settings.ApplicationName, settings.AuthorName);
+            writer.Write("{0} By {1}",
+                _configurationSettings.ApplicationName,
+                _configurationSettings.AuthorName);
         }
     }
 }

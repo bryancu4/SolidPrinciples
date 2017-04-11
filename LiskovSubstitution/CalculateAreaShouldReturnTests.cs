@@ -16,8 +16,15 @@ namespace LiskovSubstitution
         [TestMethod]
         public void NineFor3X3Square()
         {
-            var mySquare = new Square { SideLength = 3 };
+            var mySquare = new Square() { SideLength = 3 };
             Assert.AreEqual(9, mySquare.Area());
+        }
+
+        [TestMethod]
+        public void TwentyFor4X5ShapeFromRectangle()
+        {
+            Shape myShape = new Rectangle() { Height = 4, Width = 5 };
+            Assert.AreEqual(20, myShape.Area());
         }
 
         [TestMethod]
@@ -31,14 +38,7 @@ namespace LiskovSubstitution
             var areas = new List<int>();
             foreach (Shape shape in shapes)
             {
-                if (shape.GetType() == typeof(Rectangle))
-                {
-                    areas.Add(((Rectangle)shape).Area());
-                }
-                if (shape.GetType() == typeof(Square))
-                {
-                    areas.Add(((Square)shape).Area());
-                }
+                areas.Add(shape.Area());
             }
             Assert.AreEqual(20, areas[0]);
             Assert.AreEqual(9, areas[1]);

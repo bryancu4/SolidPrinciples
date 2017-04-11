@@ -5,7 +5,7 @@
         public int Height { get; set; }
         public int Width { get; set; }
 
-        public int Area()
+        public override int Area()
         {
             return Height * Width;
         }

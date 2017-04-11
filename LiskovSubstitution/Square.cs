@@ -4,7 +4,7 @@
     {
         public int SideLength;
 
-        public int Area()
+        public override int Area()
         {
             return SideLength * SideLength;
         }
